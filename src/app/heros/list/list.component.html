@@ -1,0 +1,11 @@
+<h3>Heros!</h3>
+
+<ul>
+  <li style="margin-bottom: 10px;" *ngFor="let hero of heros">{{hero.name}} <button (click)="delete(hero.id)">Delete it!</button></li>
+</ul>
+
+<h3 *ngIf="herosDeleted.length > 0">Heros Deleted</h3>
+
+<ul>
+  <li style="margin-bottom: 10px;" *ngFor="let hero of herosDeleted">{{hero.name}} <button (click)="unDelete(hero.id)">Un delete it!</button></li>
+</ul>
