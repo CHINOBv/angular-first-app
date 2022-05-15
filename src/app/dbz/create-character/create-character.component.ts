@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { ICharacter } from '../main-page/main-page.component';
+import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-create-character',
@@ -8,24 +9,21 @@ import { ICharacter } from '../main-page/main-page.component';
   styleUrls: ['./create-character.component.sass'],
 })
 export class CreateCharacterComponent {
-  @Input() newCharacter: ICharacter = {
+  newCharacter: ICharacter = {
     id: 0,
     name: '',
     power: 0,
   };
 
-  @Output() onNewCharacter: EventEmitter<ICharacter> = new EventEmitter();
   createCharacter() {
-    if (!this.newCharacter.name.trim()) {
-      return;
-    }
-
-    this.onNewCharacter.emit({ ...this.newCharacter });
-
+    this.dbzService.createCharacter(this.newCharacter);
     this.newCharacter = {
       id: 0,
       name: '',
       power: 0,
     };
+  };
+
+  constructor(private dbzService: DbzService){
   }
 }
