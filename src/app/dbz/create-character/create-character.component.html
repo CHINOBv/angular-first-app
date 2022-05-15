@@ -1,0 +1,7 @@
+<h3>Add</h3>
+<hr>
+<form style='display: flex; flex-direction: column; align-items: center;' (ngSubmit)="createCharacter()">
+  <input type="text" placeholder="Name" [(ngModel)]="newCharacter.name" name="name">
+  <input type="number" placeholder="Power" [(ngModel)]="newCharacter.power" name="power">
+  <button type='submit'>Create</button>
+</form>
